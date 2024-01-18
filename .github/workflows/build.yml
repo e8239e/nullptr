@@ -1,0 +1,21 @@
+name: build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
+    - name: Install Nix
+      uses: DeterminateSystems/nix-installer-action@main
+    - name: check flake
+      run: nix flake check
+    - name: download inputs
+      run: nix flake archive
+    - name: init nix shell
+      run: nix develop --command true
+    - name: build
+      run: nix develop --command make build

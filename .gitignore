@@ -1,0 +1,13 @@
+/.direnv/
+.nixd.json
+.ccls-cache/
+/.cache/
+events.json
+/build/
+*.o
+third-party/fonts/*.ttf
+third-party/fonts/*.h
+third-party/fonts/*.md
+third-party/fonts/*.tar*
+third-party/fonts/*wqy*microhei*
+third-party/fonts/binary_to_compressed_c

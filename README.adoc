@@ -1,0 +1,33 @@
+= nullptr
+:reproducible:
+
+Simple C++ https://en.wikipedia.org/wiki/Graphical_user_interface[GUI] for https://0x0.st[0x0.st] using https://github.com/ocornut/imgui[Dear ImGui]
+
+The Upload tab contains only a large text input field and an upload button (also large).
+Type/paste text and click the button, when the request completes (request is executed in separate thread),
+an error or success message popup will appear,
+containing the error message or the URL of the uploaded content (with button to copy to clipboard).
+
+The History tab contains only the URLs returned by the server and buttons to copy them.
+The history is not written anywhere
+(only in https://en.wikipedia.org/wiki/Random-access_memory[RAM]),
+and will be cleared on exit.
+
+Settings tab allow to configure:
+
+. instanse that hosts https://git.0x0.st/mia/0x0[0x0 software] (https://0x0.st by default)
+. hard to guess links (enable or disable, enabled by default)
+. expiration time in hours (disabled by default)
+
+(support for these options depends on software version used on server)
+
+Unicode is supported, fonts for https://en.wikipedia.org/wiki/Cyrillic_script[Cyrilic],
+https://en.wikipedia.org/wiki/CJK_characters[CJK] and even icons
+(https://www.nerdfonts.com[nerdfonts]) included (built into the binary).
+Some characters may not display correctly, but they will be uploaded correctly.
+
+== Compilation
+
+There is Nix shell, you can enter repo dir, type `nix develop` or `nix-shell` and then `make <make target>`
+
+(`make` just calls cmake, so you can use cmake directly)
